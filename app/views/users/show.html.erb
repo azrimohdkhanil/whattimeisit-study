@@ -1,0 +1,40 @@
+<section class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="page-header">
+            <h1>User Profile of UID <%= @user.id %> </h1>
+        </div>
+        <div class="well">
+            <img src="<%= gravatar_for(@user.email, 125) %>" class="img-circle center-block">
+            
+            <h1 class="text-center"><strong><%= @user.name %></strong></h1>
+
+            <div class="author-meta center-block">
+                <h4 class="text-muted"><span class="glyphicon glyphicon-map-marker"></span> Malaysia</h4>
+                <a href="#"><h4 class="text-muted"><span class="glyphicon glyphicon-link"></span> http://www.example.com</h4></a>
+                <a href="mailto:<%= @user.email %>"><h4 class="text-muted"><span class="glyphicon glyphicon-envelope"></span> Email</h4></a>
+            </div>
+        </div>
+
+        <h1>User Selected Timezones</h1>
+        <div class="well">
+            <% unless (@user.timezones.count > 0) %>
+                <center><strong class="text-muted">No timezone defined for user</strong></center>
+            <% else %>
+                <% @user.timezones.each do |t| %>
+                    <% Time.zone = t.region %>
+                    <center><strong><%= Time.zone.now %></strong></center>
+                <% end %>
+            <% end %>
+        </div>
+        
+            <% 
+            if is_admin? 
+                link_to 'Edit', edit_user_path(@user), class: "btn btn-sm btn-warning"
+                return_link = users_path
+            else
+                return_link = root_path
+            end
+            %>
+            <%= link_to 'Back', return_link, class: "btn btn-sm btn-default" %>
+    </div>
+</section>
