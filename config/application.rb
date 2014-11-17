@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Whattimeisit
   class Application < Rails::Application
       
-    config.action_mailer.default_url_options = { host: 'whattimeisit-c9-azri13.c9.io' }
+    config.action_mailer.default_url_options = { host: 'whattimeisit-azri.herokuapp.com' }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

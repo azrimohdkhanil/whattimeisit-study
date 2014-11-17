@@ -6,7 +6,7 @@ Codemalaysia - PFS Assignment
 # Installation
 
 ```
-git clone git@github.com:imranismail/whattimeisit.git
+git clone https://github.com/azrimohdkhanil/whattimeisit-study.git
 ```
 
 ```
